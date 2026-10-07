@@ -1,0 +1,31 @@
+<div class="px-margin-desktop max-w-[1440px] mx-auto py-12">
+  <div class="grid md:grid-cols-2 gap-12 items-center bg-surface-container-lowest p-8 rounded-2xl clinical-shadow">
+    <div class="flex justify-center">
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}" class="max-h-[400px] object-contain">
+      {% else %}
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCexhfGPpW-Dd1ri6UlAVmRPO9nhcBLOMMsCBTaOU-mgunWP237Mh-UCsTtO0uHiC4TM92q7Z7UEzv5VIOZxbQOA4W4EO05Fs7uO5cxxRc742CPT3C_ptxM97Ytkiuly53WYxhPbatffmDOlbSy264rHujE_efN-FcaDZQ160raUjGJLyV8HE3m6CGgdOBWa87yeWUmCMBokf25pZByLZLV3R4I5i2JHLZbxeY3iAezs7fC3lG9WVt17-peZU9epi6RIg25FKTP4A" alt="Dermive Product" class="max-h-[400px] object-contain">
+      {% endif %}
+    </div>
+    <div class="space-y-6">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-container/10 text-primary rounded-full font-label-md">Clinical Precision</span>
+      <h1 class="font-headline-lg text-headline-lg">{{ product.title }}</h1>
+      <div class="text-display-lg text-[28px] text-primary font-bold">{{ product.price | money }}</div>
+      <div class="font-body-md text-on-surface-variant">{{ product.description }}</div>
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button type="submit" class="w-full bg-primary-container text-on-primary py-4 rounded-xl font-headline-md text-[18px] clinical-shadow hover:brightness-110 transition-all flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          Add to Bag
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "settings": []
+}
+{% endschema %}

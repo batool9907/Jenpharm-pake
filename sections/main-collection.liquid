@@ -1,0 +1,26 @@
+<div class="px-margin-desktop max-w-[1440px] mx-auto py-12">
+  <div class="text-center mb-12">
+    <h1 class="font-headline-lg text-headline-lg mb-2">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <p class="font-body-md text-on-surface-variant">{{ collection.description }}</p>
+    {% endif %}
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {% for product in collection.products %}
+      <div class="bg-surface-container-lowest p-6 rounded-2xl clinical-shadow border border-outline-variant/30 flex flex-col justify-between">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title | escape }}" class="h-48 w-full object-contain mb-4">
+          <h3 class="font-headline-md text-[18px] mb-2">{{ product.title }}</h3>
+          <p class="font-body-md text-primary font-bold mb-4">{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": []
+}
+{% endschema %}

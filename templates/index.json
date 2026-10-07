@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-section",
+      "settings": {}
+    },
+    "molecular_tech": {
+      "type": "molecular-tech",
+      "settings": {}
+    },
+    "clinical_stats": {
+      "type": "clinical-stats",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "reviews-section",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "molecular_tech",
+    "clinical_stats",
+    "reviews",
+    "newsletter"
+  ]
+}
